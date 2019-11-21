@@ -1,0 +1,130 @@
+using System;
+
+//namespace ConsoleApp1
+//{
+//    class Program
+//    {
+//        static void Main(string[] args)
+//        {
+//            Console.WriteLine("Hello World!");
+//        }
+//    }
+
+
+
+//}ladşsfjo93ajflsa
+
+namespace Oyun
+{
+    class Program
+    {
+        protected static int satır;
+        protected static int sütun;
+        protected static void Yaz(string s, int x, int y)
+        {
+            try
+            {
+                Console.SetCursorPosition(satır + x, sütun + y);
+                Console.Write(s);
+            }
+            catch (ArgumentOutOfRangeException e)
+            {
+                Console.Clear();
+                Console.WriteLine(e.Message);
+            }
+        }
+        public static void Git(int sütun, int satır)
+        {
+            satır = Console.CursorTop;
+            sütun = Console.CursorLeft;
+            ConsoleKeyInfo keyInfo;
+            while ((keyInfo = Console.ReadKey(true)).Key != ConsoleKey.Escape)
+            {
+                switch (keyInfo.Key)
+                {
+                    case ConsoleKey.UpArrow:
+                        satır--;
+                        Console.SetCursorPosition(sütun, satır);
+                        string dönüs = Console.ReadLine();
+                        if (dönüs == "@")
+                        {
+                            Console.ReadKey();
+                        }
+                        else
+                        {
+                            Console.WriteLine("A");
+                        }
+                        break;
+                    case ConsoleKey.RightArrow:
+                        sütun++;
+                        Console.SetCursorPosition(sütun, satır);
+                        string dönüs1 = Console.ReadLine();
+                        if (dönüs1 == "@")
+                        {
+                            Console.ReadKey();
+                        }
+                        else
+                        {
+                            Console.WriteLine("A");
+                        }
+                        break;
+                    case ConsoleKey.DownArrow:
+                        satır++;
+                        Console.SetCursorPosition(sütun, satır);
+                        string dönüs2 = Console.ReadLine();
+                        if (dönüs2 == "@")
+                        {
+                            Console.ReadKey();
+                        }
+                        else
+                        {
+                            Console.WriteLine("A");
+                        }
+                        break;
+                    case ConsoleKey.LeftArrow:
+                        sütun--;
+                        Console.SetCursorPosition(sütun, satır);
+                        var dönüs3 = Console.ReadLine();
+                        if (dönüs3 != "@")
+                        {
+                            Console.Write("A");
+                        }
+                        Console.Read();
+                        break;
+                }
+            }
+        }
+        public static void Main()
+        {
+            Console.Clear();
+            satır = Console.CursorTop;
+            sütun = Console.CursorLeft;
+
+            int l=2;
+            
+            while (1==1) {
+                for (int i = 0; i <= 80; i++)
+                {
+                    for (int j = 0; j <= i; j++)
+                    {
+                        Yaz("OMERDOGU", i, l);
+                        Yaz(" ", j,l);
+
+                    }
+                    l = l + 1;
+                     
+
+
+
+                }
+            }
+
+             
+
+            Console.SetCursorPosition(3, 1);
+            Git(3, 3);
+            Console.ReadLine();
+        }
+    }
+}
+
